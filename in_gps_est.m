@@ -81,17 +81,20 @@ title('i_ddot');
 %최소자승법 적용을 위한 구간을 정의한다.
 interval = 50:final_time-100; %최소자승법에 사용되는 시간 배열의 index를 저장.
 
+%최소자승법으로 각속도 전달함수의 파라미터를 구하는 과정
 X(:,1) = -w_dot(interval);
 X(:,2) = -w_filtered(interval);
 X(:,3) = input_voltage(interval);
 Y(:,1) = w_ddot(interval);
 
-param = (X'*X)^-1*X'*Y;
+param = (X'*X)^-1*X'*Y; %최소자승법으로 구한 각속도 전달함수의 파라미터 배열
 
 a2 = param(1);
 a1 = param(2);
-a0 = param(3);
+a0 = param(3); %W/U = a0/(s^2 + a1*s + a2*s)의 형태로 나온다. 이 파라미터들을 시뮬링크를 이용한 전달함수에 사용함.
 
+%역기전력 상수 K를 최소자승법으로 구하기
+b = input_voltage(interval) - i_filtered(interval)*
 Xc(:,1) = -i_dot(interval);
 Xc(:,2) = -i_filtered(interval);
 Xc(:,3) = -dudt(interval);
@@ -120,3 +123,36 @@ plot(true_time, i_filtered); hold on;
 plot(true_time, i_sim); hold on;
 title('simulation current and real current');
 legend('real','sim');
+
+%Parameter Identification of a DC Motor: An Experimental Approach 논문을 참고하여
+%모든 파라미터를 구하는 부분
+%참고: 전류 센싱보드의 정확한 calibration이 필요함. 나머지는 문제없음.
+%단자전압의 경우 시뮬링크 상의 지령치를 그대로 사용할 것.
+%사실, 정확한 parameter estimation을 하려면 단자전압도 ADC로 읽어와서 계산해야 함.
+%단자전압이 최대 12V로 높기 때문에, 전압의 scaling을 해주는 pcb 제작이 필요함.
+
+M = zeros(2,5);
+Rm = zeros(5,5);
+Rmy = zeros(5,1);
+y = zeros(2,1);
+
+%Rm, Rmy를 구하는 과정
+for j = interval
+    M(1,1) = i_dot(j);
+    M(1,2) = i_filtered(j);
+    M(1,3) = w_filtered(j);
+    M(2,3) = -i_filtered(j);
+    M(2,4) = w_dot(j);
+    M(2,5) = w_filtered(j);
+    y = [input_voltage(j); 0];
+
+    Rm = Rm + M'*M;
+    Rmy = Rmy + M'y;
+end
+
+%Rm*K_hat = Rmy이므로 최소자승법으로 K_hat을 추정한다.
+K_hat = inv(Rm'*Rm)*Rm'*Rmy;
+
+L_hat = K_hat(1); R_hat = K_hat(2); K = K_hat(3); J_hat = K_hat(4); B_hat = K_hat(5);
+
+%시뮬링크로 추정된 파라미터로 구한 결과와 실제 결과를 비교
