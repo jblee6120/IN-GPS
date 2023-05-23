@@ -1,10 +1,20 @@
 clc;
 clear all;
+close all;
 port_num = 17;
 ts = 0.0005;
+cpr = 4096; %각 모터에 장착된 encoder의 cpr을 적어준다. RE40의 경우 1024, pololu의 경우 64
 %DC 모터의 실제 parameter estimation
 
-set_param('in_gps_estimation/voltage', 'Value', '12');
+A = eye(3);
+B = [ 1; 0 ; 0]; %3차 시스템의 B
+
+C = eye(3); %3*3 단위행렬
+
+D = [0;0;0;];
+
+set_param('in_gps_estimation/Manual Switch', 'sw', '0');
+% set_param('in_gps_estimation/voltage', 'Value', '12');
 sim("in_gps_estimation.slx"); %모터구동 시작
 
 %zero-phase filter를 전류, 전압 데이터에 적용하는 과정
@@ -12,8 +22,8 @@ filt_length = 10;
 i_filtered = filtfilt(ones(filt_length,1)/filt_length, 1, i);
 w_filtered = filtfilt(ones(filt_length,1)/filt_length,1, w);
 
-%추가적엔 zero-phase filter적용과정. 추후 더 효과적인 필터(kalman filter등)를 적용시켜야 함.
-for j = 1:200
+%추가적인 zero-phase filter적용과정. 추후 더 효과적인 필터(kalman filter등)를 적용시켜야 함.
+for j = 1:2
     i_filtered = filtfilt(ones(filt_length,1)/filt_length, 1, i_filtered);
     w_filtered = filtfilt(ones(filt_length,1)/filt_length,1, w_filtered);
 end
@@ -39,7 +49,7 @@ for index = 2:final_time-1
 end
 
 %각가속도, 전류 도함수에도 noise가 있으므로 zero-phase filter적용. 이것도 추후 더 나은 filter를 사용해야함.
-for i = 1:1000
+for i = 1:2
 w_dot = filtfilt(ones(filt_length,1)/filt_length,1, w_dot);
 i_dot = filtfilt(ones(filt_length,1)/filt_length,1, i_dot);
 end
@@ -52,7 +62,7 @@ for index = 3:final_time-2
 end
 
 %이계도함수의 값들에 zero-phase filter를 적용하는 과정
-for i = 1:1000
+for i = 1:2
 w_ddot = filtfilt(ones(filt_length,1)/filt_length,1, w_ddot);
 i_ddot = filtfilt(ones(filt_length,1)/filt_length,1, i_ddot);
 dudt = filtfilt(ones(filt_length,1)/filt_length,1, dudt);
@@ -93,22 +103,6 @@ a2 = param(1);
 a1 = param(2);
 a0 = param(3); %W/U = a0/(s^2 + a1*s + a2*s)의 형태로 나온다. 이 파라미터들을 시뮬링크를 이용한 전달함수에 사용함.
 
-%역기전력 상수 K를 최소자승법으로 구하기
-b = input_voltage(interval) - i_filtered(interval)*
-Xc(:,1) = -i_dot(interval);
-Xc(:,2) = -i_filtered(interval);
-Xc(:,3) = -dudt(interval);
-Xc(:,4) = -input_voltage(interval);
-Yc(:,1) = i_ddot(interval);
-
-param = (Xc'*Xc)^-1*Xc'*Yc;
-
-b3 = param(1);
-b2 = param(2);
-b1 = param(3);
-b0 = param(4);
-
-
 sim("dcsimul.slx");
 
 figure(7);
@@ -120,7 +114,7 @@ ylabel('rad/sec')
 
 figure(8);
 plot(true_time, i_filtered); hold on;
-plot(true_time, i_sim); hold on;
+% plot(true_time, i_sim); hold on;
 title('simulation current and real current');
 legend('real','sim');
 
@@ -147,7 +141,7 @@ for j = interval
     y = [input_voltage(j); 0];
 
     Rm = Rm + M'*M;
-    Rmy = Rmy + M'y;
+    Rmy = Rmy + M'*y;
 end
 
 %Rm*K_hat = Rmy이므로 최소자승법으로 K_hat을 추정한다.
@@ -156,3 +150,69 @@ K_hat = inv(Rm'*Rm)*Rm'*Rmy;
 L_hat = K_hat(1); R_hat = K_hat(2); K = K_hat(3); J_hat = K_hat(4); B_hat = K_hat(5);
 
 %시뮬링크로 추정된 파라미터로 구한 결과와 실제 결과를 비교
+A = [ -R_hat/L_hat -K/L_hat 0;
+    K/J_hat -B_hat/J_hat 0;
+      0     1    0]; %3차 시스템의 계수행렬 A
+
+B = [ 1/L_hat; 0 ; 0]; %3차 시스템의 B
+
+C = eye(3); %3*3 단위행렬
+
+D = [0;0;0;];
+
+sim("dcsimul.slx");
+
+figure(9);
+plot(true_time, w_filtered); hold on;
+plot(true_time, w_sim); hold on;
+plot(true_time, w_ss, 'm'); hold on;
+title('simulation speed and real speed');
+xlabel('time(sec)');
+ylabel('rad/sec'); legend('w-real', 'w-tf', 'w-ss');
+
+figure(10);
+plot(true_time, i_filtered); hold on;
+plot(true_time, i_ss); hold on;
+title('simulation current and real current');
+legend('i-real','i-ss');
+
+%인덕턴스 추정? 시정수를 통해 정확한 인덕턴스를 구하는 과정
+set_param('in_gps_estimation/Manual Switch', 'sw', '1');
+sim("in_gps_estimation.slx"); %모터구동 시작
+
+%zero-phase filter를 전류, 전압 데이터에 적용하는 과정
+filt_length = 10;
+i_filtered = filtfilt(ones(filt_length,1)/filt_length, 1, i);
+w_filtered = filtfilt(ones(filt_length,1)/filt_length,1, w);
+
+%추가적인 zero-phase filter적용과정. 추후 더 효과적인 필터(kalman filter등)를 적용시켜야 함.
+for j = 1:2
+    i_filtered = filtfilt(ones(filt_length,1)/filt_length, 1, i_filtered);
+    w_filtered = filtfilt(ones(filt_length,1)/filt_length,1, w_filtered);
+end
+
+%각가속도, 전류의 도함수를 구하는 반복문
+%central difference를 이용해서 구한다.
+for index = 2:final_time-1
+    w_dot(index) = (w_filtered(index+1)-w_filtered(index-1))/(true_time(index+1)-true_time(index-1));
+    i_dot(index) = (i_filtered(index+1)-i_filtered(index-1))/(true_time(index+1)-true_time(index-1));
+end
+
+%각가속도, 전류 도함수에도 noise가 있으므로 zero-phase filter적용. 이것도 추후 더 나은 filter를 사용해야함.
+for i = 1:2
+w_dot = filtfilt(ones(filt_length,1)/filt_length,1, w_dot);
+i_dot = filtfilt(ones(filt_length,1)/filt_length,1, i_dot);
+end
+
+voltage = input_voltage(2:final_time);
+X_L = i_dot'; Y = voltage - R_hat*i_filtered(2:final_time);
+
+L_1 = -inv(X_L'*X_L)*X_L'*Y;
+
+A = [ -R_hat/L_1 -K/L_1 0;
+    K/J_hat -B_hat/J_hat 0;
+      0     1    0]; %3차 시스템의 계수행렬 A
+
+B = [ 1/L_1; 0 ; 0]; %3차 시스템의 B
+
+sim("dcsimul.slx");
