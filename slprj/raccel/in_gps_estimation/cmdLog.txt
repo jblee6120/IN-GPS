@@ -1,0 +1,25 @@
+The argument '-tgtconn_server_info_file' passed to rtiostream_tcpip is not valid and will be ignored.
+The argument 'C:\Users\JongBeom\AppData\Local\Temp\tgtconnpe0e9231d_0cbf_4c4a_bc25_4e440e72726a.info' passed to rtiostream_tcpip is not valid and will be ignored.
+The argument '-tgtconn_port' passed to rtiostream_tcpip is not valid and will be ignored.
+The argument '0' passed to rtiostream_tcpip is not valid and will be ignored.
+Firewall Rule Add failed: 80070057
+---------------------------------------------
+Total number of RCP IO blocks: 5
+The number of receive blocks : 4
+The number of send blocks : 1
+Received data : 28 Bytes
+Sent data : 8 Bytes
+---------------------------------------------
+RxDataInfo[0]=11
+RxDataInfo[1]=1
+RxDataInfo[2]=71
+RxDataInfo[3]=70
+---------------------------------------------
+TxDataInfo[0]=80
+---------------------------------------------
+SampleTimeInfo = 500
+---------------------------------------------
+!!! COM17 is now open !!! 
+'S' has been received
+'K' has been received
+!!! COM17 has just been closed !!! 

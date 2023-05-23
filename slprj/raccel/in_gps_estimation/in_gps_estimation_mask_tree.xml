@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MF0 version="1.1" packageUris="http://schema.mathworks.com/mf0/SlsaMaskTree/R2020a">
+  <slsa.mm.maskTree.MaskTree type="slsa.mm.maskTree.MaskTree" uuid="8555bf94-392d-4671-b4bd-131a4b5631f3">
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="c33b33d6-8285-4d90-a117-719021a9fbef">
+      <blockPath>in_gps_estimation/S-Function3</blockPath>
+      <id>in_gps_estimation:1</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="00649de9-d325-4321-9ec6-5cf3d06bfd11">
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="7be986ef-e3f6-42dd-8fd4-5b68e995c8e0">
+          <name>BlockInfo</name>
+          <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAAAAAAAAAGBA</value>
+        </cachedVariables>
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="5540370a-625f-4928-9e30-7caad57921c6">
+          <name>ParamInfo</name>
+          <value>AAFJTQAAAAAOAAAAUAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAQAAAABAAAAAQAAAAAAAAAJAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0QAAAAAAAAAhA</value>
+        </cachedVariables>
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="48a24f6f-6d52-4e51-ab24-9dea4df3d0d8">
+          <name>PortInfo</name>
+          <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAAAAAAAAADFA</value>
+        </cachedVariables>
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="6d2e791e-1685-4343-88f3-4b2f6240e4fa">
+          <name>TimeInfo</name>
+          <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAPyp8dJNYkA/</value>
+        </cachedVariables>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="54cf8a76-9e25-4bdc-83cb-9d875463679f">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <isTunable>true</isTunable>
+          <name>channel</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="001d13a4-b155-48f6-8014-98e7ab7072f2">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <isTunable>true</isTunable>
+          <name>method</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="9e7458ee-9af2-47b9-8091-8ec0477114a7">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>sync</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="5dcf7477-7d9e-42f9-81a3-e56a0c60677c">
+          <evaluate>true</evaluate>
+          <expression>3</expression>
+          <name>freq</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="6c062a6e-7300-4cb3-bc31-5fc7e3ef0e26">
+          <evaluate>true</evaluate>
+          <expression>3</expression>
+          <isTunable>true</isTunable>
+          <name>dead_time</name>
+        </dialogParameters>
+        <initializationCode>DueDaqRcp_PWM_callback;</initializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="6395cf42-9905-442e-81e0-8e371be5d7fb">
+      <blockPath>in_gps_estimation/S-Function</blockPath>
+      <id>in_gps_estimation:10</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="58458319-6d65-4d0f-95a1-da0d36850dd4">
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="ba36ad43-473d-45cb-862f-da67ef4b5f3f">
+          <name>BlockInfo</name>
+          <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAAAAAAAAAPA/</value>
+        </cachedVariables>
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="67ce1990-a65c-42af-a054-6e3bedc782f4">
+          <name>ParamInfo</name>
+          <value>AAFJTQAAAAAOAAAAMAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAAAAAAAAAAAAQAAAAAAAAAJAAAAAAAAAA==</value>
+        </cachedVariables>
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="3f7c6631-3061-42dc-9ea1-b5ff730be860">
+          <name>PortInfo</name>
+          <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAAAAAAAAADFA</value>
+        </cachedVariables>
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="fcb98adb-a104-4c17-ae3e-082c50be2725">
+          <name>TimeInfo</name>
+          <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAPyp8dJNYkA/</value>
+        </cachedVariables>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="edb700fb-f189-47cb-9cb5-34705d35f20d">
+          <evaluate>true</evaluate>
+          <expression>2</expression>
+          <isTunable>true</isTunable>
+          <name>channel</name>
+        </dialogParameters>
+        <initializationCode>DueDaqRcp_Encoder_callback;</initializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="41f8d839-7a87-4ba3-a42e-c00d8b584a68">
+      <blockPath>in_gps_estimation/S-Function5</blockPath>
+      <id>in_gps_estimation:103</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="bfa08b37-aa7a-40ee-8dc6-410dc2ee33d7">
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="e4d878ba-9506-49d9-9f05-1e4665e45e49">
+          <name>BlockInfo</name>
+          <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAAAAAAAAADFA</value>
+        </cachedVariables>
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="7b0c12bd-d9cb-437c-9a4b-8b1d68100dcf">
+          <name>ParamInfo</name>
+          <value>AAFJTQAAAAAOAAAAMAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAAAAAAAAAAAAQAAAAAAAAAJAAAAAAAAAA==</value>
+        </cachedVariables>
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="c42633dc-5f55-41af-9d16-9215c9d712dd">
+          <name>PortInfo</name>
+          <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAAAAAAAAADFA</value>
+        </cachedVariables>
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="9269c368-de48-4196-a1b4-35bd9e12a530">
+          <name>TimeInfo</name>
+          <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAPyp8dJNYkA/</value>
+        </cachedVariables>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="dc28c2e4-3688-42fc-9527-47b48b0794d4">
+          <evaluate>true</evaluate>
+          <expression>2</expression>
+          <isTunable>true</isTunable>
+          <name>channel</name>
+        </dialogParameters>
+        <initializationCode>DueDaqRcp_ADC_callback;</initializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="7611563e-22d9-4ab8-9f09-50a77c94e8cf">
+      <blockPath>in_gps_estimation/Difference1</blockPath>
+      <id>in_gps_estimation:120</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="8bbbf072-d1a4-4dcb-94ac-aaeb6a6f3baa">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="c4565b50-dd99-41ba-ae47-5f3868625c6e">
+          <evaluate>true</evaluate>
+          <expression>0.0</expression>
+          <isTunable>true</isTunable>
+          <name>ICPrevInput</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="841b4156-8664-44c8-ad7e-284bffd66c67">
+          <expression>Elements as channels (sample based)</expression>
+          <name>InputProcessing</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="b733adcd-d3b5-4e3a-bb88-c67282b340b1">
+          <evaluate>true</evaluate>
+          <expression>[]</expression>
+          <name>OutMin</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="ca02af0c-c4ca-4ca0-ad83-afa2c32983b7">
+          <evaluate>true</evaluate>
+          <expression>[]</expression>
+          <name>OutMax</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="11c79aac-fd2a-436d-b32f-84f62bb7e583">
+          <evaluate>true</evaluate>
+          <expression>Inherit: Inherit via internal rule</expression>
+          <name>OutDataTypeStr</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="144a1c9c-a22b-4b15-a6bd-21c3af93f2cd">
+          <expression>Inherit via internal rule</expression>
+          <name>OutputDataTypeScalingMode</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="a79ec9f7-8331-4334-8804-e17f8f0158ef">
+          <evaluate>true</evaluate>
+          <expression>fixdt(1, 16)</expression>
+          <name>OutDataType</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="b6b798c2-de71-466a-ab08-14c108037c85">
+          <evaluate>true</evaluate>
+          <expression>2^-10</expression>
+          <name>OutScaling</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="6f58b8d3-c3ad-4223-99fa-001a8bca69c8">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <name>LockScale</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="8f656194-edde-4cc0-8343-eaa7cc765b17">
+          <expression>Floor</expression>
+          <name>RndMeth</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="1438451e-8276-4205-9f78-0fade3bf8d31">
+          <expression>off</expression>
+          <name>DoSatur</name>
+        </dialogParameters>
+        <initializationCode>blkH = gcbh;
+blkName = getfullname(blkH);
+
+set_param([blkName,&apos;/Diff&apos;], ...
+    &apos;RndMeth&apos;,RndMeth, ...
+	&apos;DoSatur&apos;,DoSatur);
+
+set_param([blkName,&apos;/UD&apos;], ...
+	&apos;InputProcessing&apos;,InputProcessing);
+</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="b8675f44-0b4a-464b-8159-9769c170779b">
+      <blockPath>in_gps_estimation/Difference2</blockPath>
+      <id>in_gps_estimation:121</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="e1f38fff-a1b8-45cb-908b-7cd0d965183d">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="d14a04c9-40dc-42d3-8452-6b14dab4df3f">
+          <evaluate>true</evaluate>
+          <expression>0.0</expression>
+          <isTunable>true</isTunable>
+          <name>ICPrevInput</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="7fed3345-160d-4852-beb0-0e2359a998b0">
+          <expression>Elements as channels (sample based)</expression>
+          <name>InputProcessing</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="e5e64c2a-28e9-42b2-bd53-a4b18e81deac">
+          <evaluate>true</evaluate>
+          <expression>[]</expression>
+          <name>OutMin</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="4f66fe88-68f3-4a5a-9e8a-4a550c94da7e">
+          <evaluate>true</evaluate>
+          <expression>[]</expression>
+          <name>OutMax</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="7b58bda4-e9bc-4378-8f03-376cf58009a9">
+          <evaluate>true</evaluate>
+          <expression>Inherit: Inherit via internal rule</expression>
+          <name>OutDataTypeStr</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="61ed7e0e-26c5-4cb6-ba33-ffe29bbcdbc8">
+          <expression>Inherit via internal rule</expression>
+          <name>OutputDataTypeScalingMode</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="aa1acef4-c282-42b2-b9ed-e42e6dc3e8a3">
+          <evaluate>true</evaluate>
+          <expression>fixdt(1, 16)</expression>
+          <name>OutDataType</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="45600812-d1a8-4453-a9f4-2c94e61e30cf">
+          <evaluate>true</evaluate>
+          <expression>2^-10</expression>
+          <name>OutScaling</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="8d5843b7-53a3-469c-a905-590c30dab646">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <name>LockScale</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="f2f63f1c-a909-409b-afcc-0fc8cfa5a7cf">
+          <expression>Floor</expression>
+          <name>RndMeth</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="f0078a83-fda7-4a57-ac72-8ca9bee33ef2">
+          <expression>off</expression>
+          <name>DoSatur</name>
+        </dialogParameters>
+        <initializationCode>blkH = gcbh;
+blkName = getfullname(blkH);
+
+set_param([blkName,&apos;/Diff&apos;], ...
+    &apos;RndMeth&apos;,RndMeth, ...
+	&apos;DoSatur&apos;,DoSatur);
+
+set_param([blkName,&apos;/UD&apos;], ...
+	&apos;InputProcessing&apos;,InputProcessing);
+</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="047c66e1-1ed2-4fc9-b8ba-c210c6bab34b">
+      <blockPath>in_gps_estimation/Difference</blockPath>
+      <id>in_gps_estimation:13</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="d32c566c-4c25-4b01-8df7-a25d55530cfa">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="b6f3794a-ebe5-4689-bf81-48a444538565">
+          <evaluate>true</evaluate>
+          <expression>0.0</expression>
+          <isTunable>true</isTunable>
+          <name>ICPrevInput</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="16c35140-7e33-44d8-8554-3b16f26aba73">
+          <expression>Elements as channels (sample based)</expression>
+          <name>InputProcessing</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="1f7c829e-a3cd-4aac-ba78-200d4ceeacea">
+          <evaluate>true</evaluate>
+          <expression>[]</expression>
+          <name>OutMin</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="56bff26e-4ddf-4573-9f71-5b26b8d7f623">
+          <evaluate>true</evaluate>
+          <expression>[]</expression>
+          <name>OutMax</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="14271f42-c07b-4850-9705-9641ff7cc2f7">
+          <evaluate>true</evaluate>
+          <expression>Inherit: Inherit via internal rule</expression>
+          <name>OutDataTypeStr</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="b18b1edc-ac90-4321-893e-89d7ef6335d0">
+          <expression>Inherit via internal rule</expression>
+          <name>OutputDataTypeScalingMode</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="82c84d93-b2ec-4954-8037-2263d2c62dad">
+          <evaluate>true</evaluate>
+          <expression>fixdt(1, 16)</expression>
+          <name>OutDataType</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="f6c1230a-e9b6-4399-bcab-d857a685c1cb">
+          <evaluate>true</evaluate>
+          <expression>2^-10</expression>
+          <name>OutScaling</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="7b10b638-9a7e-4de1-8f24-26957ce8dac5">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <name>LockScale</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="e8f7da4e-ba80-4bbd-a9c5-5e378ec904aa">
+          <expression>Floor</expression>
+          <name>RndMeth</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="34e1a001-f635-4984-a34c-8b2eb6b76a42">
+          <expression>off</expression>
+          <name>DoSatur</name>
+        </dialogParameters>
+        <initializationCode>blkH = gcbh;
+blkName = getfullname(blkH);
+
+set_param([blkName,&apos;/Diff&apos;], ...
+    &apos;RndMeth&apos;,RndMeth, ...
+	&apos;DoSatur&apos;,DoSatur);
+
+set_param([blkName,&apos;/UD&apos;], ...
+	&apos;InputProcessing&apos;,InputProcessing);
+</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="f9b934d0-af61-4c3b-a47e-b297a91d540a">
+      <blockPath>in_gps_estimation/Difference3</blockPath>
+      <id>in_gps_estimation:135</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="c192d930-2989-4f8b-945b-48739f4d9965">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="3fafc5e1-fc74-4456-ae21-28a4897193c6">
+          <evaluate>true</evaluate>
+          <expression>0.0</expression>
+          <isTunable>true</isTunable>
+          <name>ICPrevInput</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="5ec34f9a-8ad2-4e0a-a312-13b36b1df0cf">
+          <expression>Elements as channels (sample based)</expression>
+          <name>InputProcessing</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="184330ec-af92-4e72-9cf8-103c79b82076">
+          <evaluate>true</evaluate>
+          <expression>[]</expression>
+          <name>OutMin</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="b4f1f6de-8b2d-4ad4-b972-a4c24bc51cdd">
+          <evaluate>true</evaluate>
+          <expression>[]</expression>
+          <name>OutMax</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="2990f410-e811-4c0a-8b9a-07430938c5b9">
+          <evaluate>true</evaluate>
+          <expression>Inherit: Inherit via internal rule</expression>
+          <name>OutDataTypeStr</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="e88c008b-6af8-4648-8f08-b6025b293cc1">
+          <expression>Inherit via internal rule</expression>
+          <name>OutputDataTypeScalingMode</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="4a9e1cd1-a7ae-4d1c-ac80-a9d14a647848">
+          <evaluate>true</evaluate>
+          <expression>fixdt(1, 16)</expression>
+          <name>OutDataType</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="0500ab96-eea3-4de7-bdfc-788d15e3f9ae">
+          <evaluate>true</evaluate>
+          <expression>2^-10</expression>
+          <name>OutScaling</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="1e7328c6-118f-42e5-b473-1d6b29b4a919">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <name>LockScale</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="e4e2b92d-608d-450a-89f6-f0fbb6f89d7c">
+          <expression>Floor</expression>
+          <name>RndMeth</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="d9e171d3-ec11-4503-ab39-b79f1b355e5c">
+          <expression>off</expression>
+          <name>DoSatur</name>
+        </dialogParameters>
+        <initializationCode>blkH = gcbh;
+blkName = getfullname(blkH);
+
+set_param([blkName,&apos;/Diff&apos;], ...
+    &apos;RndMeth&apos;,RndMeth, ...
+	&apos;DoSatur&apos;,DoSatur);
+
+set_param([blkName,&apos;/UD&apos;], ...
+	&apos;InputProcessing&apos;,InputProcessing);
+</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="b0c38bb0-5970-4e9e-82d1-40e6858539a2">
+      <blockPath>in_gps_estimation/S-Function16</blockPath>
+      <id>in_gps_estimation:16</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="2c50b501-ff3b-4a13-8820-f1a3448ffa6b">
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="7207bd88-6d9b-46e5-9722-dd99ee1e2674">
+          <name>BlockInfo</name>
+          <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAAAAAAAAQFxA</value>
+        </cachedVariables>
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="5b77310b-69bd-4cfe-8fd4-9efc5f050ca6">
+          <name>ParamInfo</name>
+          <value>AAFJTQAAAAAOAAAAMAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAAAAAAAAAAAAQAAAAAAAAAJAAAAAAAAAA==</value>
+        </cachedVariables>
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="f53c1546-96de-4ba3-9220-00ad047423ed">
+          <name>PortInfo</name>
+          <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAAAAAAAAADFA</value>
+        </cachedVariables>
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="ffb6ef88-ce4b-49c5-b0a4-46fab00820aa">
+          <name>TimeInfo</name>
+          <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAPyp8dJNYkA/</value>
+        </cachedVariables>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="5aff2a74-6a17-462d-b54c-57b01d1404c9">
+          <evaluate>true</evaluate>
+          <expression>2</expression>
+          <isTunable>true</isTunable>
+          <name>time_data_type</name>
+        </dialogParameters>
+        <initializationCode>DueDaqRcp_TimeDiff_callback;</initializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="23d8d090-70a8-4cf7-bc48-cc90fa1ab923">
+      <blockPath>in_gps_estimation/S-Function1</blockPath>
+      <id>in_gps_estimation:21</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="25f2fddc-1ad9-4f4e-a7b4-6cb5e1fc623c">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="ec3ec128-790e-4a47-b2da-22d81afb4c33">
+          <evaluate>true</evaluate>
+          <expression>2</expression>
+          <isTunable>true</isTunable>
+          <name>channel</name>
+        </dialogParameters>
+        <initializationCode>DueDaqRcp_ADC_callback;</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="44293e83-d23f-42d4-a1ab-697f36b38231">
+      <blockPath>in_gps_estimation/S-Function2</blockPath>
+      <id>in_gps_estimation:47</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="9b8d6972-a8d8-4eb3-93bc-2ce696a20222">
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="de87a1af-bcb5-42f3-b2e8-6f47360536d9">
+          <name>BlockInfo</name>
+          <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAAAAAAAAAFxA</value>
+        </cachedVariables>
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="215d5284-a1dd-49d7-b194-c370ee6780ca">
+          <name>ParamInfo</name>
+          <value>AAFJTQAAAAAOAAAAMAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAAAAAAAAAAAAQAAAAAAAAAJAAAAAAAAAA==</value>
+        </cachedVariables>
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="8aa59d90-4112-4063-996d-440e21d2c499">
+          <name>PortInfo</name>
+          <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAAAAAAAAADFA</value>
+        </cachedVariables>
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="26ae9f91-710a-485c-83cf-30e13cb521de">
+          <name>TimeInfo</name>
+          <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAPyp8dJNYkA/</value>
+        </cachedVariables>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="5ffd3006-106c-42ac-9950-9ddedfd6c317">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <isTunable>true</isTunable>
+          <name>time_data_type</name>
+        </dialogParameters>
+        <initializationCode>DueDaqRcp_TimeDiff_callback;</initializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="713f6d96-06e3-4417-ba77-7d95029d707a">
+      <blockPath>in_gps_estimation/S-Function4</blockPath>
+      <id>in_gps_estimation:90</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="4a268138-5e26-4565-acf9-f09474253f56">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="e688432b-d795-4789-ae2f-0d6e9bb2918f">
+          <evaluate>true</evaluate>
+          <expression>2</expression>
+          <isTunable>true</isTunable>
+          <name>channel</name>
+        </dialogParameters>
+        <initializationCode>DueDaqRcp_ADC_callback;</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="aa87e161-75f2-49c8-936d-fd63ed9c5fe1">
+      <childrenIds>in_gps_estimation:1</childrenIds>
+      <childrenIds>in_gps_estimation:10</childrenIds>
+      <childrenIds>in_gps_estimation:103</childrenIds>
+      <childrenIds>in_gps_estimation:120</childrenIds>
+      <childrenIds>in_gps_estimation:121</childrenIds>
+      <childrenIds>in_gps_estimation:13</childrenIds>
+      <childrenIds>in_gps_estimation:135</childrenIds>
+      <childrenIds>in_gps_estimation:16</childrenIds>
+      <childrenIds>in_gps_estimation:21</childrenIds>
+      <childrenIds>in_gps_estimation:47</childrenIds>
+      <childrenIds>in_gps_estimation:90</childrenIds>
+      <id>root</id>
+    </maskedBlocks>
+    <flags type="slsa.mm.maskTree.MaskTreeFlags" uuid="a6d328bd-cbab-4575-bc1c-c04c212dc2da"/>
+  </slsa.mm.maskTree.MaskTree>
+</MF0>
