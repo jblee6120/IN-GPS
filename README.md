@@ -1,4 +1,4 @@
-# IN-GPS
+# IN-GPS(Caution: 제작자가 주로 사용한 언어는 Matlab script임. C언어는 시뮬링크 파일 생성시 생긴 것을 그대로 커밋/푸쉬해서 생긴 것)
 IN-GPS 프로젝트로 Motor의 R,L,K,J,B를 실제 모터를 구동하여 정확한 값을 구하는 시스템을 만드는 프로젝트.
 현재까지 진행상황(2023/04/18)
 1. 최소자승법을 이용한 parameter estimation으로 각속도 모델의 정확한 parameter를 구했음.
